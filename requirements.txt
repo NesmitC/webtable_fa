@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+asyncpg  # или psycopg, если предпочитаешь синхронный

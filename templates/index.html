@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebTable FA</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Таблица данных</h1>
+
+    <form method="post" action="/add">
+        <input type="text" name="name" placeholder="Имя" required>
+        <input type="text" name="value" placeholder="Значение" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Имя</th><th>Значение</th></tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.value }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Нет данных</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
