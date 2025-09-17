@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>WebTable FA</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Нейростат — Онлайн-школа</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
 </head>
 <body>
-    <h1>Таблица данных</h1>
+    <header>
+        <nav>
+            <a href="/static/planning/planning_5kl.html">5 класс</a>
+            <a href="/static/planning/planning_6kl.html">6 класс</a>
+            <a href="/static/planning/planning_7kl.html">7 класс</a>
+            <span id="auth-buttons"></span>
+        </nav>
+    </header>
 
-    <form method="post" action="/add">
-        <input type="text" name="name" placeholder="Имя" required>
-        <input type="text" name="value" placeholder="Значение" required>
-        <button type="submit">Добавить</button>
-    </form>
+    <main>
+        <h1>Добро пожаловать в Нейростат</h1>
+        <p>Онлайн-школа для школьников 5–7 классов.</p>
 
-    <table>
-        <thead>
-            <tr><th>ID</th><th>Имя</th><th>Значение</th></tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.value }}</td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="3">Нет данных</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div id="welcome-message" style="display: none; margin: 20px 0; padding: 15px; background: #e8f4f8; border-left: 4px solid #2c3e50; font-weight: bold; color: #2c3e50;">
+            Добро пожаловать, <span id="welcome-username">ученик</span>!
+        </div>
+
+        <!-- Форма регистрации -->
+        <div id="register-form" style="display:none; margin: 2rem 0;">
+            <h3>Регистрация</h3>
+            <form id="form-register" onsubmit="event.preventDefault()">
+                <input type="hidden" id="current_username" name="current_username" value="{{ current_username }}">
+                <input type="text" id="reg-username" placeholder="Логин (мин. 3 символа)" required><br><br>
+                <input type="email" id="reg-email" placeholder="Email" required><br><br>
+                <input type="password" id="reg-password" placeholder="Пароль" required><br><br>
+                <button type="submit" id="submit-register">Зарегистрироваться</button>
+            </form>
+            <p id="reg-message"></p>
+        </div>
+
+        <!-- Форма входа -->
+        <div id="login-form" style="display:none; margin: 2rem 0;">
+            <h3>Вход</h3>
+            <form id="form-login" onsubmit="event.preventDefault()">
+                <input type="email" id="login-email" placeholder="Email" required><br><br>
+                <input type="password" id="login-password" placeholder="Пароль" required><br><br>
+                <button type="submit" id="submit-login">Войти</button>
+            </form>
+            <p id="login-message"></p>
+        </div>
+    </main>
+
+    <script src="/static/js/main.js"></script>
 </body>
 </html>

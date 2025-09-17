@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет — Нейростат</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Назад</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Личный кабинет</h1>
+        <p>Заполните информацию о себе.</p>
+
+        <form id="personal-form">
+            <!-- Скрытое поле для username -->
+            <input type="hidden" id="username" name="username">
+
+            <label for="name">Имя:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="surname">Фамилия:</label><br>
+            <input type="text" id="surname" name="surname" required><br><br>
+
+            <label for="class">Класс:</label><br>
+            <input type="text" id="class" name="class" required><br><br>
+
+            <label for="telegram">Адрес в Telegram:</label><br>
+            <input type="text" id="telegram" name="telegram" required><br><br>
+
+            <button type="submit">Сохранить</button>
+        </form>
+
+        <div id="message"></div>
+    </main>
+
+    <script src="/static/js/personal.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
